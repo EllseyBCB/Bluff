@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-wiz-950 text-wiz-100 antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(90, 53, 184, 0.35), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 110%, rgba(126, 243, 225, 0.08), transparent);
+    min-height: 100dvh;
+  }
+}
+
+@layer components {
+  /* Kartenartige UI-Fläche im Magie-Look */
+  .wiz-card {
+    @apply rounded-2xl border border-wiz-600/50 bg-wiz-800/80 p-5 shadow-glow-sm backdrop-blur;
+  }
+
+  /* Großer Primär-Button, für Daumen auf dem Handy optimiert */
+  .btn-primary {
+    @apply block w-full rounded-xl bg-gradient-to-r from-wiz-500 to-fuchsia-600 px-6 py-4
+      text-center text-lg font-bold text-white shadow-glow transition
+      active:scale-95 disabled:opacity-40 disabled:active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply block w-full rounded-xl border border-wiz-500/60 bg-wiz-800/60 px-6 py-4
+      text-center text-lg font-semibold text-wiz-200 transition active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-wiz-600/60 bg-wiz-900/80 px-4 py-3 text-lg
+      text-wiz-100 placeholder-wiz-300/40 outline-none focus:border-wiz-400 focus:shadow-glow-sm;
+  }
+}
+
+@layer utilities {
+  /* 3D-Flip für die Rollenkarte */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
